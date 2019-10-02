@@ -4,10 +4,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/main_padding"
     android:background="@drawable/main_activity_background"
     android:orientation="vertical"
     tools:context=".ui.main.MainActivity">
 
-    <!-- TODO -->
+    <TextView
+        android:id="@+id/lblWeight"
+        android:text="@string/lblWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/txtWeight"
+        android:inputType="numberDecimal"
+        android:maxLength="5"
+        android:focusedByDefault="true"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hintWeight"/>
+
+    <TextView
+        android:id="@+id/lblHeight"
+        android:text="@string/lblHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/txtHeight"
+        android:maxLength="5"
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hintHeight"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnReset"
+            android:text="@string/btnReset"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnCalculate"
+            android:text="@string/btnCalculate"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/lblResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="@dimen/fontSize_Result"/>
+
+    <ImageView
+        android:id="@+id/imgBmi"
+        android:src="@drawable/bmi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

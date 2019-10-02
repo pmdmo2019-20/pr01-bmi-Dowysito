@@ -11,7 +11,16 @@ public class BmiCalculator {
      * @return The body mass index (BMI)
      */
     public float calculateBmi(float weightInKgs, float heightInMeters) {
-        // TODO
+
+        if (weightInKgs<=0){
+            throw new IllegalArgumentException();
+        }
+        else if (heightInMeters<=0){
+            throw new IllegalArgumentException();
+        }
+
+        return (float) (weightInKgs / Math.pow(heightInMeters, 2));
+
     }
 
 
@@ -20,7 +29,25 @@ public class BmiCalculator {
      * @return A BmiClasification enum with the clasification of BMI
      */
     public BmiClasification getBmiClasification(float bmi) {
-        // TODO
+        if(bmi<18.5){
+            return BmiClasification.LOW_WEIGHT;
+        }
+        else if (bmi<25){
+            return BmiClasification.NORMAL_WEIGHT;
+        }
+        else if (bmi<30){
+            return BmiClasification.OVERWWEIGHT;
+        }
+        else if (bmi<35){
+            return BmiClasification.OBESITY_GRADE_1;
+        }
+        else if (bmi<40){
+            return BmiClasification.OBESITY_GRADE_2;
+        }
+        else{
+            return BmiClasification.OBESITY_GRADE_3;
+        }
+
     }
 
     public enum BmiClasification {
