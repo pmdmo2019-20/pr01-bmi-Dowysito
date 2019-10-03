@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void calculateBmi(View view) {
         SoftInputUtils.hideKeyboard(view);
+        checktxtHeight();
+        checktxtWeight();
         if(checktxtWeight()&&checktxtHeight()){
             bmi = b.calculateBmi(Float.parseFloat(txtWeight.getText().toString()), Float.parseFloat(txtHeight.getText().toString()));
             w =  b.getBmiClasification(bmi);
