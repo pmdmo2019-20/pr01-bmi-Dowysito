@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         btnReset=ActivityCompat.requireViewById(this,R.id.btnReset);
         btnCalculate=ActivityCompat.requireViewById(this,R.id.btnCalculate);
         imgBmi=ActivityCompat.requireViewById(this,R.id.imgBmi);
-        btnCalculate.setOnClickListener(view -> calculateBmi(view));
+        btnCalculate.setOnClickListener(view1 -> calculateBmi(view1));
         btnReset.setOnClickListener(view -> reset());
     }
 
@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         txtWeight.setText("");
         txtHeight.setText("");
         lblResult.setText("");
+        txtWeight.setError(null);
+        txtHeight.setError(null);
         changeImage(R.drawable.bmi);
     }
 
@@ -100,6 +102,10 @@ public class MainActivity extends AppCompatActivity {
             txtHeight.setError(getString(R.string.main_invalid_height));
             return false;
         }
+        if (txtHeight.getText().toString().equals(".")){
+            txtHeight.setError(getString(R.string.main_invalid_height));
+            return false;
+        }
         else if(Float.parseFloat(txtHeight.getText().toString())>=3){
             txtHeight.setError(getString(R.string.main_invalid_height));
             return false;
@@ -116,6 +122,10 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean checktxtWeight() {
         if (txtWeight.getText().toString().equals("")){
+            txtWeight.setError(getString(R.string.main_invalid_weight));
+            return false;
+        }
+        else if (txtWeight.getText().toString().equals(".")){
             txtWeight.setError(getString(R.string.main_invalid_weight));
             return false;
         }
